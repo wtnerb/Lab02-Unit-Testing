@@ -21,5 +21,11 @@ namespace Testing123
         {
             Assert.Equal(expected, GetBalance(Withdraw(current, withdrawl)));
         }
+
+        [Fact]
+        public void CanDeposit()
+        {
+            Assert.Equal("$234", CanDeposit(100.2, 133.8));
+        }
     }
 }
