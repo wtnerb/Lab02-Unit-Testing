@@ -29,6 +29,7 @@ namespace tddpractice
             catch 
             {
                 Console.WriteLine("Error, cannot have negative balance");
+                return balance;
             }
             return balance;
         }
