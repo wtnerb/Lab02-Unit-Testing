@@ -27,7 +27,8 @@
 	- Keep asking the user to choose a transaction until they choose to 'exit' the application
 - A few things to keep in mind:
 	- Make sure the user can't go below a zero balance
-	- You cannot unit test console outputs. 
+	- You cannot unit test methods that ask for user input
+	- Be sure your program class is `public`
 	- Make sure your methods are just returning values and not reading input from the console. 
 
 - **Stay within scope of the what we have learned so far in the class.**
@@ -36,8 +37,10 @@
 
 ### Unit Tests
 1. Provide unit tests for your ATM.
-2. For every method/action (that does not require user input), there should be a passing valid input, and a passing invalid input.
+2. For every method/action (that does not require user input), there should be a passing valid input.
+1. Although I am not requiring a specific number of tests, i expect you to have no less than 10. 
 3. **A failing test, is not a valid test** - even if the failure is expected. 
+
 
 ### Stretch
 
