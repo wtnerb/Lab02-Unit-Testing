@@ -22,24 +22,3 @@ The deposit, withdraw and view balance portions of the app utilize test driven d
 
 ## Change log
 2018-03-21 19:30 1.0 released as mvp plus a few bells and whistles.
-A README is a module consumer's first -- and maybe only -- look into your creation. The consumer wants a module to fulfill their need, so you must explain exactly what need your module fills, and how effectively it does so.
-<br />
-Your job is to
-
-1. tell them what it is (with context)
-2. show them what it looks like in action
-3. show them how they use it
-4. tell them any other relevant details
-<br />
-
-This is ***your*** job. It's up to the module creator to prove that their work is a shining gem in the sea of slipshod modules. Since so many developers' eyes will find their way to your README before anything else, quality here is your public-facing measure of your work.
-
-<br /> Refer to the sample-README in the class repo `Resources` folder for an example. 
-- [Reference](https://github.com/noffle/art-of-readme)
-
-
-## Rubric
-
-- 7pts: Program meets all requirements described in Lab directions
-- 3pts: Code meets industry standards
-- **Readme.md AND tests required for submission. Missing readme document and tests will result in a best score of 2/10**
