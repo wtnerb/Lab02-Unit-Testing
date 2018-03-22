@@ -6,14 +6,14 @@ namespace tddpractice
     {
         public static void Main(string[] args)
         {
-            //Start assuming atm interaction and with $1000,000
+            // Start assuming atm interaction and with $1000,000
             bool looping = true;
             double balance = 1000 * 1000;
             while (looping)
             {
                 PrintMenu();
                 string option = Console.ReadLine();
-                if (option == "1") //get balance
+                if (option == "1") // get balance
                 {
                     GetBalance(balance);
                 }
@@ -58,7 +58,7 @@ namespace tddpractice
 
         public static void PrintMenu()
         {
-            //Console.Clear();
+            Console.Clear();
             Console.WriteLine("Which action would you like to take?\n" +
                 "1. View Balance\n" +
                 "2. Deposit\n" +
@@ -68,8 +68,11 @@ namespace tddpractice
 
         public static string GetBalance (double balance)
         {
+            Console.Clear();
             string output = balance.ToString("C2");
             Console.WriteLine($"Your account balance is {output}");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
             return output;
         }
 
