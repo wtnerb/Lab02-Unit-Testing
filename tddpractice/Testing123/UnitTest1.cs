@@ -25,7 +25,7 @@ namespace Testing123
         [Fact]
         public void CanDeposit()
         {
-            Assert.Equal("$234", CanDeposit(100.2, 133.8));
+            Assert.Equal("$234.00", GetBalance(Deposit(100.2, 133.8)));
         }
     }
 }
