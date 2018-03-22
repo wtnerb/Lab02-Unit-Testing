@@ -1,52 +1,27 @@
-![cf](http://i.imgur.com/7v5ASc8.png) Lab 2: Unit Testing
-=====================================
+# ATM in the Console
+## Overview
+This app simulates the behavior of an atm in the console. You can check your balance, withdraw money or even (though atms don't let you do this) deposit money.
 
-## To Submit this Assignment
+## Use
+Once compiled the app should be simple to run. You will need to press return at the end of each input. Don't add tabs or spaces to your input. Your balance will only display when specifically requested for security purposes. Attempting to depost/withdraw negative money and attempting to withdraw more money than you possess will throw exceptions that cause the transaction to fail without crashing the app. Same with attempting a transaction with a non-monetary value. The money input will trim whitespace if needed, but don't depend on that.
 
-- fork this repository
-- create a new branch named `lab02-`; + `<your name>` **e.g.** `lab02-amanda`
-- write your code
-- push to your repository
-- submit a pull request to this repository
-- submit a link to your PR in canvas
-- Include a Readme.md (contents described below)
+## Example
+Starting view:
+```
+Which action would you like to take? +
+1. View Balance
+2. Deposit
+3. Withdraw
+4. Quit
 
-## Directions
+```
+To check your balance (which does have a default starting value) your input should be `1` and the `return` key. That will bring you to view the starting balance and ask for a keystroke to continue. At that point, just follow the prompts in the app.
 
-### The Problem Domain
+## Architecture
+The deposit, withdraw and view balance portions of the app utilize test driven development and the xunit package.
 
-- Create a bank "ATM" machine within a console application with VS2017
-- Your solution should include the following:
-    - Main method
-	- Testable external methods
-	- User interface that prompts the user for standard ATM operations
-		- View Balance
-		- Withdraw Money
-		- Add Money (not standard, but for this exercise it will be....)
-	- Exception Handling (try/catch/finally)
-	- Keep asking the user to choose a transaction until they choose to 'exit' the application
-- A few things to keep in mind:
-	- Make sure the user can't go below a zero balance
-	- You cannot unit test methods that ask for user input
-	- Be sure your program class is `public`
-	- Make sure your methods are just returning values and not reading input from the console. 
-
-- **Stay within scope of the what we have learned so far in the class.**
-	- if we have not officially learned the concept you are trying to implement, then don't use it. 
-	- Ask the instructor or TA if you have any questions about the scope. 
-
-### Unit Tests
-1. Provide unit tests for your ATM.
-2. For every method/action (that does not require user input), there should be a passing valid input.
-1. Although I am not requiring a specific number of tests, i expect you to have no less than 10. 
-3. **A failing test, is not a valid test** - even if the failure is expected. 
-
-
-### Stretch
-
-- Record each transaction the user records and when they exit, provide a receipt for every transaction they conducted. 
-
-## ReadMe
+## Change log
+2018-03-21 19:30 1.0 released as mvp plus a few bells and whistles.
 A README is a module consumer's first -- and maybe only -- look into your creation. The consumer wants a module to fulfill their need, so you must explain exactly what need your module fills, and how effectively it does so.
 <br />
 Your job is to
