@@ -4,6 +4,7 @@ namespace tddpractice
 {
     public class Program
     {
+
         public static void Main(string[] args)
         {
             // Start assuming atm interaction and with $1000,000
@@ -16,6 +17,7 @@ namespace tddpractice
                 if (option == "1") // get balance
                 {
                     GetBalance(balance);
+                    Console.ReadKey(); // belongs in GetBalance but would render it untestable
                 }
                 else if (option == "2" || option == "3")// withdraw or deposit
                 {
@@ -25,7 +27,7 @@ namespace tddpractice
                     }
                     catch (Exception e)
                     {
-                        Console.Write("An error occured because");
+                        Console.Write("An error occured because ");
                         Console.WriteLine(e.Message);
                         Console.WriteLine("Press any key to continue");
                         Console.ReadKey();
@@ -84,22 +86,25 @@ namespace tddpractice
                 "4. Quit");
         }
 
+        /// <summary>
+        /// Reads balance as a currency and displays it on the console with some formatting
+        /// </summary>
+        /// <param name="balance">Current balance</param>
+        /// <returns>string balance</returns>
         public static string GetBalance (double balance)
         {
             Console.Clear();
             string output = balance.ToString("C2");
             Console.WriteLine($"Your account balance is {output}");
             Console.WriteLine("Press any key to continue");
-            Console.ReadKey();
             return output;
         }
 
         public static double Withdraw (double balance, double withdrawl)
         {
-
             if (balance - withdrawl < 0)
             {
-                throw new Exception("you are not that rich");
+                throw new Exception("you are not that rich.");
             }
             balance -= withdrawl;
             return balance;
@@ -107,7 +112,8 @@ namespace tddpractice
 
         public static double Deposit (double balance, double deposit)
         {
-            return balance + deposit;
+            balance += deposit;
+            return balance;
         }
     }
 }
