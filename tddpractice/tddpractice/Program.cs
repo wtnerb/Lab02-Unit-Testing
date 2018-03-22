@@ -19,7 +19,17 @@ namespace tddpractice
                 }
                 else if (option == "2" || option == "3")// withdraw or deposit
                 {
-                    balance = ChangeBalance(option == "2", balance);
+                    try
+                    {
+                        balance = ChangeBalance(option == "2", balance);
+                    }
+                    catch (Exception e)
+                    {
+                        Console.Write("An error occured because");
+                        Console.WriteLine(e.Message);
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                    }
                 }
                 else if (option == "4") // quit
                 {
@@ -49,7 +59,15 @@ namespace tddpractice
             }
             catch
             {
-                Console.WriteLine("that isn't a valid number.");
+                // This function is called in a try catch block. The
+                // catch prints the error message to the console. This exception
+                // is more user friendly.
+                throw new Exception("that isn't a valid number.");
+            }
+
+            if (amount < 0)
+            {
+                throw new Exception($"{behavior} amount cannot be negative.");
             }
             return (select)
                  ? Deposit(balance, amount)
@@ -78,19 +96,12 @@ namespace tddpractice
 
         public static double Withdraw (double balance, double withdrawl)
         {
-            try
+
+            if (balance - withdrawl < 0)
             {
-                if (balance - withdrawl < 0)
-                {
-                    throw new Exception("Cannot have negative balance");
-                }
-                balance -= withdrawl;
+                throw new Exception("you are not that rich");
             }
-            catch 
-            {
-                Console.WriteLine("You are not that rich.");
-                return balance;
-            }
+            balance -= withdrawl;
             return balance;
         }
 
