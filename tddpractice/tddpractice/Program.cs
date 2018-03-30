@@ -76,6 +76,34 @@ namespace tddpractice
                  : Withdraw(balance, amount);
         }
 
+        //THIS OVERLOAD ONLY EXISTS FOR TESTING. IT MUST MIRROR THE ORIGINAL EVERYWHERE EXCEPT
+        //REPLACE READLINE WITH TRANSACTION. OTHERWISE, TESTS WILL BE USELESS.
+        public static double ChangeBalance(bool select, double balance, double transaction)
+        {
+            double amount = 0;
+            string behavior = (select) ? "deposit" : "withdraw";
+            try
+            {
+                Console.WriteLine($"How much would you like to {behavior}?");
+                amount = transaction;// This line instead of ReadLine must be only difference in the overload.
+            }
+            catch
+            {
+                // This function is called in a try catch block. The
+                // catch prints the error message to the console. This exception
+                // is more user friendly.
+                throw new Exception("that isn't a valid number.");
+            }
+
+            if (amount < 0)
+            {
+                throw new Exception($"{behavior} amount cannot be negative.");
+            }
+            return (select)
+                 ? Deposit(balance, amount)
+                 : Withdraw(balance, amount);
+        }
+
         public static void PrintMenu()
         {
             Console.Clear();
