@@ -17,7 +17,8 @@ namespace tddpractice
                 if (option == "1") // get balance
                 {
                     GetBalance(balance);
-                    Console.ReadKey(); // belongs in GetBalance but would render it untestable
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
                 }
                 else if (option == "2" || option == "3")// withdraw or deposit
                 {
@@ -31,6 +32,10 @@ namespace tddpractice
                         Console.WriteLine(e.Message);
                         Console.WriteLine("Press any key to continue");
                         Console.ReadKey();
+                    }
+                    finally
+                    {
+                        Console.WriteLine("Thank you for choosing Virtual ATM!");
                     }
                 }
                 else if (option == "4") // quit
@@ -124,7 +129,6 @@ namespace tddpractice
             Console.Clear();
             string output = balance.ToString("C2");
             Console.WriteLine($"Your account balance is {output}");
-            Console.WriteLine("Press any key to continue");
             return output;
         }
 
